@@ -83,6 +83,7 @@ public class ClienteController {
         );
     }
 
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<ClienteResponse>> actualizar(
             @PathVariable Long id,
@@ -93,6 +94,7 @@ public class ClienteController {
         );
     }
 
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
     @PatchMapping("/{id}/desactivar")
     public ResponseEntity<ApiResponse<Void>> desactivar(
             @PathVariable Long id
@@ -103,6 +105,7 @@ public class ClienteController {
         );
     }
 
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
     @PatchMapping("/{id}/activar")
     public ResponseEntity<ApiResponse<Void>> activar(
             @PathVariable Long id
@@ -113,6 +116,7 @@ public class ClienteController {
         );
     }
 
+    @PreAuthorize("hasAnyRole('SUPER_ADMIN','ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> eliminar(
             @PathVariable Long id

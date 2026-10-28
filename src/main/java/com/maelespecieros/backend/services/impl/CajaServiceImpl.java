@@ -74,7 +74,7 @@ public class CajaServiceImpl implements CajaService {
         if (inicio == null) {
             return new DesgloseTurno(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO, 0L);
         }
-        LocalDateTime fechaFin = fin != null ? fin : LocalDateTime.now();
+        LocalDateTime fechaFin = fin != null ? fin.withNano(999_999_999) : LocalDateTime.now();
 
         List<Object[]> resultados = ventaRepository.obtenerTotalesPorMetodoPagoEntreFechas(inicio, fechaFin);
         Long cantidadVentas = ventaRepository.contarVentasEntreFechas(inicio, fechaFin);

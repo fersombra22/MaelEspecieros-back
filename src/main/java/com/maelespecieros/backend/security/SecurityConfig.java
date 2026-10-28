@@ -118,9 +118,19 @@ public class SecurityConfig {
                 )
                 .permitAll()
 
-
-
-
+                /*
+                 * Swagger / OpenAPI 3 & Actuator (Pruebas del profesor y salud del sistema)
+                 */
+                .requestMatchers(
+                        "/v3/api-docs/**",
+                        "/swagger-ui/**",
+                        "/swagger-ui.html",
+                        "/swagger-resources/**",
+                        "/webjars/**",
+                        "/actuator/health",
+                        "/actuator/info"
+                )
+                .permitAll()
 
                 /*
                  * Recursos Angular
